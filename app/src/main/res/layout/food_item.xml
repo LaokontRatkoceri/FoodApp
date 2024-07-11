@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="170dp"
+    android:layout_height="231dp">
+
+    <!-- Background TextView -->
+    <TextView
+        android:id="@+id/FoodText"
+        android:layout_width="150dp"
+        android:layout_height="176dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/shape_drawable"
+        android:backgroundTint="#D9D9D9"
+        android:alpha="0.5"
+        app:circularflow_defaultRadius="300dp" />
+
+    <!-- Foreground ImageView -->
+    <ImageView
+        android:id="@+id/FoodImage"
+        android:layout_width="109dp"
+        android:layout_height="110dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="center" />
+
+    <!-- TextView above ImageView -->
+    <TextView
+        android:id="@+id/MealName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/FoodText"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#484848"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
+    
+    <ImageView
+        android:id="@+id/SaveImageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/roundshape"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/FoodText"
+        app:layout_constraintEnd_toEndOf="@id/FoodText"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="12dp"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/SaveImageView"
+        app:layout_constraintStart_toStartOf="@id/SaveImageView"
+        app:layout_constraintEnd_toEndOf="@id/SaveImageView"
+        app:layout_constraintBottom_toBottomOf="@id/SaveImageView"
+        android:src="@drawable/union"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

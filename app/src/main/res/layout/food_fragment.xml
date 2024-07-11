@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/MealImage"
+        android:layout_width="315dp"
+        android:layout_height="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/shape_drawable"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/BackArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_arrow_back_24"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="47dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    
+    <TextView
+        android:id="@+id/NameMealTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/MealImage"
+        android:layout_marginStart="46dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        
+        />
+
+    <ImageView
+        android:id="@+id/OnClickIng"
+        android:layout_width="100dp"
+        android:layout_height="33dp"
+        android:background="@drawable/shape_drawable"
+        android:backgroundTint="#129575"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/IngridientsTextView"
+        app:layout_constraintStart_toStartOf="@id/IngridientsTextView"
+        app:layout_constraintEnd_toEndOf="@id/IngridientsTextView"
+        app:layout_constraintBottom_toBottomOf="@id/IngridientsTextView"
+        />
+
+
+    <ImageView
+        android:id="@+id/OnClickInst"
+        android:layout_width="100dp"
+        android:layout_height="33dp"
+        android:background="@drawable/shape_drawable"
+        android:backgroundTint="#129575"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/InstrTextView"
+        app:layout_constraintStart_toStartOf="@id/InstrTextView"
+        app:layout_constraintEnd_toEndOf="@id/InstrTextView"
+        app:layout_constraintBottom_toBottomOf="@id/InstrTextView"
+        />
+
+    <TextView
+        android:id="@+id/IngridientsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingredients"
+        android:textColor="#71B1A1"
+        app:layout_constraintTop_toBottomOf="@id/NameMealTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/InstrTextView"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+
+        />
+
+
+    <TextView
+        android:id="@+id/InstrTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instructions"
+        android:textColor="#71B1A1"
+        app:layout_constraintTop_toBottomOf="@id/NameMealTextView"
+        app:layout_constraintStart_toEndOf="@id/IngridientsTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        />
+    
+
+
+
+    <include android:id="@+id/Ing1"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/IngridientsTextView"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        layout="@layout/in_recy"/>
+
+    <TextView
+        android:id="@+id/desTextView"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/IngridientsTextView"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <include android:id="@+id/Ing2"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing1"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing3"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Ing2"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing4"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing3"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing5"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing4"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing6"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing5"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible"
+
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing7"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing6"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing8"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing7"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing9"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing8"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing10"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing9"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing11"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing10"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing12"
+        android:layout_width="315dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/Ing11"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing13"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing12"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing14"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing13"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing15"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Ing14"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing16"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing15"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing17"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing16"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing18"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing17"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible"
+
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing19"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing18"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing20"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing19"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing21"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing20"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing22"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing21"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+    <include android:id="@+id/Ing23"
+        android:layout_width="315dp"
+        app:layout_constraintTop_toBottomOf="@id/Ing22"
+        android:layout_height="76dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        layout="@layout/in_recy"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

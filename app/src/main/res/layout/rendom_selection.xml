@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="139dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <ImageView
+        android:id="@+id/Mealtext"
+        android:layout_width="252dp"
+        android:layout_height="95dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+
+        />
+    
+    <ImageView
+        android:id="@+id/ImageFood"
+        android:layout_width="79.95dp"
+        android:layout_height="86dp"
+        app:layout_constraintEnd_toEndOf="@id/Mealtext"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="20dp"
+        />
+    <TextView
+        android:id="@+id/MealsName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@id/Mealtext"
+        app:layout_constraintStart_toStartOf="@id/Mealtext"
+        app:layout_constraintBottom_toBottomOf="@id/Mealtext"
+        android:layout_marginStart="20dp"
+
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
