@@ -11,7 +11,7 @@ import kotlin.reflect.KFunction1
 
 class CategoriesAdapter(val onItemClick: (String) -> Unit ): RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
 
-    private var selectedPosition: Int = -1
+    private var selectedPosition: Int = 0
 
     var categories: List<Categories> = emptyList()
         set(value) {
@@ -37,6 +37,8 @@ class CategoriesAdapter(val onItemClick: (String) -> Unit ): RecyclerView.Adapte
         with(holder.binding) {
             Category.text = category.strCategory
 
+
+
             // Check if the current position is the selected position
             if (position == selectedPosition) {
                 Category.setTextColor(Color.WHITE)
@@ -47,6 +49,8 @@ class CategoriesAdapter(val onItemClick: (String) -> Unit ): RecyclerView.Adapte
             }
 
             root.setOnClickListener {
+                Category.setTextColor(Color.WHITE)
+                ImageSelect.visibility = View.VISIBLE
                 // Toggle selection on item click
                 selectedPosition = position
                 notifyDataSetChanged() // Notify adapter to update UI

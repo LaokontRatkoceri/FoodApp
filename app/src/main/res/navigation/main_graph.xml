@@ -4,18 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/homeFragment"
     android:id="@+id/main_graph">
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.foodapp.ui.Home.HomeFragment"
         android:label="HomeFragment"
-        app:defaultNavHost="true"
         tools:layout="@layout/fragment_home">
-
 
         <action
             android:id="@+id/action_homeFragment_to_FoodFragment"
             app:destination="@id/FoodFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_fragmentSearch"
+            app:destination="@id/fragmentSearch" />
+        <action
+            android:id="@+id/action_homeFragment_to_SavedFragment"
+            app:destination="@id/SavedFragment" />
     </fragment>
+
+    <fragment
+        android:name="com.example.foodapp.ui.Saved.SavedFragment"
+        android:id="@+id/SavedFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/saved_fragment"
+        >
+
+        <action
+            android:id="@+id/action_SavedFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_SavedFragment_to_fragmentSearch"
+            app:destination="@id/fragmentSearch" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSearch"
+        android:label="SearchFragment"
+        tools:layout="@layout/search_fragment"
+        android:name="com.example.foodapp.ui.Search.SearchFragment"
+
+        >
+
+        <action
+            android:id="@+id/action_fragmentSearch_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_fragmentSearch_to_SavedFragment"
+            app:destination="@id/SavedFragment" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/FoodFragment"
@@ -27,7 +64,9 @@
             android:name="mealId"
             app:argType="string"
             />
+        <action
+            android:id="@+id/action_FoodFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
-
 
 </navigation>

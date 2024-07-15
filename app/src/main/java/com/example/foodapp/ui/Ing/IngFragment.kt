@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.foodapp.Data.mealsR
 import com.example.foodapp.Utils.CircularTransformation
@@ -46,6 +47,10 @@ class IngFragment : Fragment() {
         viewModel.getFoodById(args.mealId)
 
 
+        binding.BackArrow.setOnClickListener {
+            val action = IngFragmentDirections.actionFoodFragmentToHomeFragment()
+            findNavController().navigate(action)
+        }
     }
 
     private fun updateUI(meal: mealsR) {
@@ -192,7 +197,7 @@ class IngFragment : Fragment() {
 
                     }
                     imgTextViews[i].InstrTextView.visibility = View.GONE
-                    imgTextViews[i].Alpha.visibility = View.VISIBLE
+//                    imgTextViews[i].Alpha.visibility = View.VISIBLE
 
 
                 } else {
@@ -205,7 +210,7 @@ class IngFragment : Fragment() {
                         visibility = View.VISIBLE
                     }
                     imgTextViews[i].InstrTextView.visibility = View.GONE
-                    imgTextViews[i].Alpha.visibility = View.VISIBLE
+//                    imgTextViews[i].Alpha.visibility = View.VISIBLE
 
                 } else {
                     imgTextViews[i].Alpha.visibility = View.GONE

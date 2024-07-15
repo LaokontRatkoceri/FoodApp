@@ -4,12 +4,53 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:id="@+id/HelloText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/NameText"
+        android:text="Hello "
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        />
+
+    <TextView
+        android:id="@+id/NameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/HelloText"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+
+        />
+
+    <TextView
+        android:id="@+id/TextText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/HelloText"
+        app:layout_constraintStart_toStartOf="@id/HelloText"
+        android:text="What are you cooking today?"
+        android:textSize="11dp"
+        android:textColor="#A9A9A9"
+        android:layout_marginTop="5dp"
+
+        />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categories_List"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:verticalScrollbarPosition="left"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar"
@@ -18,20 +59,24 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_bar"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="8dp"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
         android:hint="search"
 
+        app:layout_constraintTop_toBottomOf="@id/TextText"
         android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:circularflow_defaultRadius="6dp">
+        android:layout_marginEnd="30dp"
+
+        app:layout_constraintStart_toStartOf="@id/HelloText"
+        app:layout_constraintEnd_toStartOf="@id/Image_Countries"
+        app:circularflow_defaultRadius="6dp"
+
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/search"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,11 +85,12 @@
         android:id="@+id/Image_Countries"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/search_bar"
         app:layout_constraintEnd_toEndOf="parent"
-
-        android:layout_marginStart="20dp"
+        android:background="@drawable/rectangle8"
+        android:src="@drawable/inactive"
         app:layout_constraintStart_toEndOf="@id/search_bar"
+        android:layout_marginEnd="30dp"
         app:layout_constraintBottom_toBottomOf="@id/search_bar"
         />
 
@@ -53,7 +99,7 @@
         android:layout_width="0dp"
         android:layout_height="231dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:verticalScrollbarPosition="left"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/categories_List"
@@ -67,7 +113,7 @@
         app:layout_constraintTop_toBottomOf="@id/Meals_List"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:textSize="16sp"
         android:textStyle="bold"
         android:text="New Recipes"
@@ -79,7 +125,7 @@
         app:layout_constraintTop_toBottomOf="@id/TextRecpie"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
 
         />

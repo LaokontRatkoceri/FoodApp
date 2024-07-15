@@ -10,7 +10,8 @@
         android:id="@+id/Mealtext"
         android:layout_width="252dp"
         android:layout_height="95dp"
-        android:background="#FFFFFF"
+        android:backgroundTint="#1234"
+        android:background="@drawable/shape_drawable"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,9 +30,10 @@
         />
     <TextView
         android:id="@+id/MealsName"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:text=""
+        android:textStyle="bold"
         android:textSize="14sp"
         app:layout_constraintTop_toTopOf="@id/Mealtext"
         app:layout_constraintStart_toStartOf="@id/Mealtext"

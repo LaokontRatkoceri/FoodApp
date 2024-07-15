@@ -3,27 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <ImageView
-        android:id="@+id/ImageLlogo"
+        android:id="@+id/TitleSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/titttle"
+        android:src="@drawable/titttlesignup"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="50dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
         />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/EmailEdit"
         android:layout_width="345dp"
         android:layout_height="55dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:hint="Email"
         app:circularflow_defaultRadius="6dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ImageLlogo"
+        app:layout_constraintTop_toBottomOf="@id/TitleSignup"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/EmailEditText"
@@ -33,45 +33,63 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/PasswordEdit"
+        android:id="@+id/PassEdit"
         android:layout_width="345dp"
         android:layout_height="55dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:hint="Password"
-
         app:circularflow_defaultRadius="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/EmailEdit">
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EmailEdit"
+        >
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/PasswordEditText"
+            android:id="@+id/PassEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/PassConEdit"
+        android:layout_width="345dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="30dp"
+        android:hint="Password Confirm"
+        app:circularflow_defaultRadius="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/PassEdit"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/PassConEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
-        android:id="@+id/LoginButton"
+        android:id="@+id/RegisterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/login"
-        app:layout_constraintTop_toBottomOf="@id/PasswordEdit"
+        android:src="@drawable/signupbutton"
+        app:layout_constraintTop_toBottomOf="@id/PassConEdit"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@android:color/transparent"
         android:layout_marginTop="60dp"
         />
 
-
     <ImageButton
-        android:id="@+id/SignupButton"
+        android:id="@+id/LoginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/already_a_member__sign_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="30dp"
         android:background="@android:color/transparent"
-        android:layout_marginBottom="50dp"
-        android:src="@drawable/don_t_have_an_account__sign_up"
+
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,10 +42,11 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent" />
     
-    <ImageView
+    <ImageButton
         android:id="@+id/SaveImageView"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:visibility="visible"
         android:background="@drawable/roundshape"
         android:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/FoodText"
@@ -53,13 +54,39 @@
         android:layout_marginBottom="12dp"
         android:layout_marginEnd="12dp"
         />
+
+    <ImageButton
+        android:id="@+id/SavedImageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/roundshape"
+        android:visibility="gone"
+        android:backgroundTint="#FFE1B3"
+        app:layout_constraintBottom_toBottomOf="@id/FoodText"
+        app:layout_constraintEnd_toEndOf="@id/FoodText"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="12dp"
+        />
     <ImageView
+        android:id="@+id/saveImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/SaveImageView"
         app:layout_constraintStart_toStartOf="@id/SaveImageView"
         app:layout_constraintEnd_toEndOf="@id/SaveImageView"
         app:layout_constraintBottom_toBottomOf="@id/SaveImageView"
+        android:src="@drawable/union"
+        />
+
+    <ImageView
+        android:id="@+id/savedImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/SavedImageView"
+        app:layout_constraintStart_toStartOf="@id/SavedImageView"
+        app:layout_constraintEnd_toEndOf="@id/SavedImageView"
+        app:layout_constraintBottom_toBottomOf="@id/SavedImageView"
         android:src="@drawable/union"
         />
 
