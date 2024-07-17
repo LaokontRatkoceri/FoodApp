@@ -1,6 +1,5 @@
-package com.example.foodapp.ui.Search
+package com.example.foodapp.ui.Profile
 
-import RoundTransformation
 import android.content.ContentValues.TAG
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,9 +9,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodapp.Data.mealsR
 import com.example.foodapp.Utils.CircularTransformation
-import com.example.foodapp.databinding.SearchFragmentBinding
-import com.example.foodapp.databinding.SearchItemBinding
-import com.example.foodapp.ui.Home.MealsAdapter.ViewHolder
+import com.example.foodapp.databinding.FoodItemBinding
+import com.example.foodapp.databinding.ProfileItemBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -21,42 +19,37 @@ import com.google.firebase.database.GenericTypeIndicator
 import com.google.firebase.database.database
 import com.squareup.picasso.Picasso
 
-class SearchAdapter:RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
-//    val onItemClick: (mealsR) -> Unit
-
-
-    private lateinit var auth: FirebaseAuth
+class ProfileAdapter: RecyclerView.Adapter<ProfileAdapter.ViewHolder>(){
 
     private lateinit var database: DatabaseReference
-
+    private lateinit var auth: FirebaseAuth
 
     var meals: List<mealsR> = emptyList()
         set(value) {
-            field= value
+            field = value
             notifyDataSetChanged()
         }
 
-
-
-    inner class ViewHolder(val binding: SearchItemBinding):RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder (val binding: ProfileItemBinding): RecyclerView.ViewHolder(binding.root){
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = SearchItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ProfileItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int = meals.size
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val meal = meals[position]
+
         auth = Firebase.auth
         database = Firebase.database.reference
 
         with(holder.binding) {
-            MealText.text = meal.strMeal.toString()
-            Picasso.get().load(meal.strMealThumb).transform(RoundTransformation(50f)).into(MealImage)
+            MealText.text = meal.strMeal
+            Picasso.get().load(meal.strMealThumb).transform(CircularTransformation())
+                .into(MealImage)
 
             val user = auth.currentUser
 
@@ -118,5 +111,7 @@ class SearchAdapter:RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
                     Log.e(TAG, "Failed to save meal ID: ${saveTask.exception?.message}")
                 }
             }
+
     }
+
 }

@@ -2,9 +2,12 @@ package com.example.foodapp.ui.Account
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foodapp.Data.User
+import com.example.foodapp.Utils.isValidEmail
+import com.example.foodapp.Utils.isValidPassword
 import com.example.foodapp.databinding.SignupFragmentBinding
 import com.example.foodapp.ui.Login.LoginFragment
 import com.google.firebase.Firebase
@@ -40,7 +43,13 @@ class RegisterFragment: AppCompatActivity() {
 
 
         binding.RegisterButton.setOnClickListener {
-            signUpUser()
+            if(binding.EmailEditText.text.isValidEmail()
+                    && binding.PassEditText.text.isValidPassword()){
+                signUpUser()
+            } else {
+                Log.d("SignIn", "The Email or the Password doesn't meat the requirements")
+            }
+
         }
 
         binding.LoginText.setOnClickListener {

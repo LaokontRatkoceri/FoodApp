@@ -25,4 +25,8 @@ interface ApiService {
 
     @GET("lookup.php")
     fun getFavoriteById(@Query("i") mealId : String): Call<mealsL>
+
+    @GET("lookup.php")
+    fun getSearchedItemByName(@Query("s") mealName : String): Call<mealsL>
+
 }

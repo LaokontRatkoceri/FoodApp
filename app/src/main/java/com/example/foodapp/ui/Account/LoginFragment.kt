@@ -6,6 +6,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foodapp.Data.User
+import com.example.foodapp.Utils.isValidEmail
+import com.example.foodapp.Utils.isValidPassword
 import com.example.foodapp.databinding.LoginFragmentBinding
 import com.example.foodapp.ui.Account.RegisterFragment
 import com.example.foodapp.ui.Intro.IntroFragment
@@ -36,7 +38,13 @@ class LoginFragment : AppCompatActivity() {
 
 
         binding.LoginButton.setOnClickListener {
-            login()
+            if(binding.EmailEditText.text.isValidEmail()
+                && binding.PasswordEditText.text.isValidPassword()){
+                login()
+            } else {
+                Log.d("SignIn", "No data available")
+            }
+
         }
 
         binding.SignupButton.setOnClickListener {
@@ -53,6 +61,7 @@ class LoginFragment : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
+
                     val user = auth.currentUser
                     println("Login successful ${user.toString()}")
 
@@ -79,4 +88,7 @@ class LoginFragment : AppCompatActivity() {
                 }
             }
     }
+
+    private fun validetes() = binding.EmailEditText.text.isValidEmail() && binding.PasswordEditText.text.isValidPassword()
+
 }

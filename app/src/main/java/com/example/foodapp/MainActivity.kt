@@ -29,5 +29,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, LoginFragment::class.java)
             startActivity(intent)
         }
+
     }
 }

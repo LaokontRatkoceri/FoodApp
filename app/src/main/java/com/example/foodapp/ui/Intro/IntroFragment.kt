@@ -25,6 +25,11 @@ class IntroFragment: AppCompatActivity() {
         binding = IntroFragmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        val navView : BottomNavigationView = findViewById(R.id.BottomNavigation)
+        navView.setupWithNavController(navController)
     }
 }

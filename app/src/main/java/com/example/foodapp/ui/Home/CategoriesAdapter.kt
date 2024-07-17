@@ -9,7 +9,7 @@ import com.example.foodapp.Data.Categories
 import com.example.foodapp.databinding.ItemCategoryBinding
 import kotlin.reflect.KFunction1
 
-class CategoriesAdapter(val onItemClick: (String) -> Unit ): RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
+class CategoriesAdapter(val onItemClick: (String) -> Unit): RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
 
     private var selectedPosition: Int = 0
 

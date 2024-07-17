@@ -23,6 +23,7 @@ import com.google.firebase.database.GenericTypeIndicator
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -34,6 +35,8 @@ class HomeModel: ViewModel() {
     val mealsList = MutableLiveData<List<Meals>>()
     val mealsList1 = MutableLiveData<List<mealsR>>()
     val meal: MutableLiveData<mealsR> = MutableLiveData()
+    val mealL1: MutableLiveData<mealsL> = MutableLiveData()
+    val favoriteMeals = MutableLiveData<MutableList<mealsR>>().apply { value = mutableListOf() }
 
     private val database: DatabaseReference = FirebaseDatabase.getInstance().reference
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
@@ -45,6 +48,8 @@ class HomeModel: ViewModel() {
         getRandom()
 
     }
+
+
 
 
     fun getCategories() {
@@ -120,23 +125,20 @@ class HomeModel: ViewModel() {
 
 
     fun getFavoriteById(id: String) {
-
         repository.service.getFavoriteById(id).enqueue(object : retrofit2.Callback<mealsL> {
             override fun onResponse(call: Call<mealsL>, response: Response<mealsL>) {
                 if (response.isSuccessful) {
-                    val mealData = response.body()
-                        // Assuming you want to post the first meal from the meals1 list
-                    if (mealData != null) {
-                        mealsList1.postValue(mealData.meals1)
+                    response.body()?.let { mealL ->
+                        val newMeals = mealL.meals1
+                        val currentFavorites = favoriteMeals.value ?: mutableListOf()
+                        currentFavorites.addAll(newMeals)
+                        favoriteMeals.postValue(currentFavorites)
                     }
-                    Log.d("ViewModel", "Meal data received successfully: $mealData")
-
                 } else {
                     Log.e(
                         "ViewModel",
                         "Failed to fetch meal. Response: ${response.code()}, ${response.message()}"
                     )
-                    // Handle other cases of unsuccessful response (e.g., HTTP error codes)
                 }
             }
             override fun onFailure(call: Call<mealsL>, t: Throwable) {
@@ -144,5 +146,10 @@ class HomeModel: ViewModel() {
                 // Handle the failure case, e.g., update UI to show error message
             }
         })
+    }
+
+    fun clearFavoriteMeals() {
+        favoriteMeals.value?.clear()
+        favoriteMeals.postValue(favoriteMeals.value)
     }
 }
