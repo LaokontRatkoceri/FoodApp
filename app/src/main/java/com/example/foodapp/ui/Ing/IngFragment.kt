@@ -40,6 +40,7 @@ class IngFragment : Fragment() {
             // Update the UI with the meal data
             meal?.let {
                 updateUI(it)
+
             }
         }
 
@@ -98,6 +99,7 @@ class IngFragment : Fragment() {
 
 
             InstrTextView.setOnClickListener {
+
                 showInstructions(meal)
 
             }
@@ -186,6 +188,8 @@ class IngFragment : Fragment() {
                 imgTextViews[i].InstrTextView.visibility = View.GONE
                 imgTextViews[i].IngMateTextView.visibility = View.VISIBLE
                 imgTextViews[i].MesMateTextView.visibility = View.VISIBLE
+                imgTextViews[i].Alpha.visibility = if (ingredients[i].isNullOrEmpty() && measures[i].isNullOrEmpty()) View.GONE else View.VISIBLE
+
             }
 
 
@@ -282,6 +286,19 @@ class IngFragment : Fragment() {
 
                 }
             }
+            instructions!!.forEachIndexed { index, instruction ->
+                if (index < imgTextViews.size) {
+                    imgTextViews[index].InstrTextView.text = instruction
+                    imgTextViews[index].InstrTextView.visibility = View.VISIBLE
+                    imgTextViews[index].Alpha.visibility = View.VISIBLE
+                }
+            }
+
+            for (i in instructions.size until imgTextViews.size) {
+                imgTextViews[i].InstrTextView.visibility = View.GONE
+                imgTextViews[i].Alpha.visibility = View.GONE
+            }
         }
+
     }
 }

@@ -33,6 +33,10 @@ class HomeModel: ViewModel() {
 
     val categoriesList = MutableLiveData<List<Categories>>()
     val mealsList = MutableLiveData<List<Meals>>()
+    private val _meal = MutableLiveData<mealsR?>()
+
+    val mealR: LiveData<mealsR?> get() = _meal
+
     val mealsList1 = MutableLiveData<List<mealsR>>()
     val meal: MutableLiveData<mealsR> = MutableLiveData()
     val mealL1: MutableLiveData<mealsL> = MutableLiveData()
@@ -151,5 +155,9 @@ class HomeModel: ViewModel() {
     fun clearFavoriteMeals() {
         favoriteMeals.value?.clear()
         favoriteMeals.postValue(favoriteMeals.value)
+    }
+
+    fun clearMeal() {
+        _meal.value = null
     }
 }
