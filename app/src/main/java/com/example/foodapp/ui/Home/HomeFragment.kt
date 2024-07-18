@@ -69,23 +69,6 @@ class HomeFragment : Fragment() {
         observeViewModel()
 
 
-        binding.search.addTextChangedListener(object : TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-//                val action = HomeFragmentDirections.actionHomeFragmentToFragmentSearch()
-//                findNavController().navigate(action)
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//                val action = HomeFragmentDirections.actionHomeFragmentToFragmentSearch()
-//                findNavController().navigate(action)
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-
-        })
-
         // Read data from the Firebase Realtime Database
         readData()
 
@@ -163,41 +146,4 @@ class HomeFragment : Fragment() {
             }
         }
     }
-
-    private fun readDataFavorites() {
-        val uid = auth.currentUser?.uid
-        if (uid == null) {
-            Log.e(TAG, "User not authenticated")
-            return
-        }
-
-        val uidRef = database.child("users").child(uid)
-
-        uidRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    val favoritesList = snapshot.child("favorites")
-                        .getValue(object : GenericTypeIndicator<List<String>>() {})
-                    if (favoritesList != null) {
-                        for (id in favoritesList) {
-                            viewModel.getFavoriteById(id)
-                        }
-                    } else {
-                        Log.d(TAG, "No favorites found for user")
-                    }
-                } else {
-                    Log.d(TAG, "Snapshot does not exist")
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.e(TAG, "Error reading data", error.toException())
-            }
-        })
-    }
-
-
-
-
-
 }

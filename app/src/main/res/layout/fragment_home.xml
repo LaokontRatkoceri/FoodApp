@@ -48,7 +48,7 @@
         android:id="@+id/categories_List"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="30dp"
         android:verticalScrollbarPosition="left"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +62,8 @@
         android:layout_height="60dp"
         android:hint="search"
 
+        android:visibility="invisible"
+
         app:layout_constraintTop_toBottomOf="@id/TextText"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
@@ -69,13 +71,8 @@
         app:layout_constraintStart_toStartOf="@id/HelloText"
         app:layout_constraintEnd_toStartOf="@id/Image_Countries"
         app:circularflow_defaultRadius="6dp"
-
         >
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/search"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,6 +81,7 @@
         android:id="@+id/Image_Countries"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         app:layout_constraintTop_toTopOf="@id/search_bar"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/rectangle8"

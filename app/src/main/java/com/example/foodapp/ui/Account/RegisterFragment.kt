@@ -73,31 +73,33 @@ class RegisterFragment: AppCompatActivity() {
             Toast.makeText(this, "Password and Confirm Password do not match", Toast.LENGTH_SHORT)
                 .show()
 
-        }
+        }else{
+            auth.createUserWithEmailAndPassword(
+                email.toString(),pass.toString()
+            ).addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
 
-        auth.createUserWithEmailAndPassword(
-            email.toString(),pass.toString()
-        ).addOnCompleteListener(this) { task ->
-            if (task.isSuccessful) {
-
-                val user = auth.currentUser
-                println("Register successfull ${user.toString()}")
-                val intent = Intent(this, LoginFragment::class.java)
-                startActivity(intent)
+                    val user = auth.currentUser
+                    println("Register successfull ${user.toString()}")
+                    val intent = Intent(this, LoginFragment::class.java)
+                    startActivity(intent)
 
 
-                user?.let {
-                    val userRef = database.child("users").child(it.uid)
-                    val userName = it.email?.split("@")?.get(0)
-                    userRef.setValue(User(userName, it.email))
+                    user?.let {
+                        val userRef = database.child("users").child(it.uid)
+                        val userName = it.email?.split("@")?.get(0)!!.uppercase()
+                        userRef.setValue(User(userName, it.email))
+                    }
+                } else {
+                    Toast.makeText(
+                        baseContext,
+                        "Authentication failed.",
+                        Toast.LENGTH_SHORT,
+                    ).show()
                 }
-            } else {
-                Toast.makeText(
-                    baseContext,
-                    "Authentication failed.",
-                    Toast.LENGTH_SHORT,
-                ).show()
             }
         }
+
+
     }
 }
